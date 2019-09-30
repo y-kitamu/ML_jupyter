@@ -31,5 +31,20 @@
             "selector": "body",
             "disabled": true
         },
+        {
+            "command": "application:activate-next-tab",
+            "keys": [
+                "Ctrl Alt N"
+            ],
+            "selector": "body"
+        },
+        {
+            "command": "application:activate-previous-tab",
+            "keys": [
+                "Ctrl Alt P"
+            ],
+            "selector": "body"
+        },
+        
     ]
 }
