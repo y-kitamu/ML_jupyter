@@ -3,3 +3,4 @@ pkl_objects
 *.csv
 aclImdb
 \.ipynb_checkpoints
+dataset
