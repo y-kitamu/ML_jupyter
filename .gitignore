@@ -4,3 +4,4 @@ pkl_objects
 aclImdb
 \.ipynb_checkpoints
 dataset
+*.h5
