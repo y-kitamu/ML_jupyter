@@ -5,3 +5,4 @@ aclImdb
 \.ipynb_checkpoints
 dataset
 *.h5
+*.tfcache*
