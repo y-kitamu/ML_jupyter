@@ -11,6 +11,16 @@ from PIL import Image, ImageTk
 
 
 class LabelingAppFrame(tk.Frame):
+    """
+    ラベル付のための gui ツール
+
+    file_selection_widgets -> dst_directory_widgets -> image_labeling_widgets
+    の順に画面遷移していく.
+    
+    - file_selection_widgets : ラベルづけするファイルを選択
+    - dst_directory_widgets : 保存先のディレクトリ、ラベル名の選択
+    - image_labegling_widgets : 実際のラベル付、ファイルの移動
+    """
     FILE_TYPE = [("", "*.jpg;*.png")]
     MAX_LIST_LENGTH = 20
     
