@@ -119,7 +119,7 @@ class LabelingAppFrame(tk.Frame):
     def create_image_labeling_widgets(self):
         root = tk.Frame(self)
         self._switch_frame(root)
-        root.focus_set()
+        self.focus_set()
         self.extract_labelnames()
 
         self.button_prev = tk.Button(root, text="Prev",
