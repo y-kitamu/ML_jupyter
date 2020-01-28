@@ -133,14 +133,17 @@ class LabelingAppFrame(tk.Frame):
         label_filename = tk.Label(root, textvariable=self.var_filename)
         label_filename.grid(row=2, column=0, columnspan=len(self.label_names))
 
-        self.button_labels = [tk.Button(root, text="{} ({})".format(label, idx))
+        self.label_buttons = [tk.Button(root, text="{} ({})".format(label, idx))
                          for idx, label in enumerate(self.label_names)]
 
+        for idx, button in enumerate(self.label_buttons):
+            button.grid(row=3, column=idx)
+        
         self.image_pannel = tk.Label(root)
+        self.image_pannel.grid(row=1, column=0, columnspan=len(self.label_names))
         self.show_image(self.file_idx)
 
     def show_image(self, idx):
-        # print("idx : {}".format(idx))
         if idx <= 0:
             self.button_prev.config(state="disabled")
         else:
@@ -150,20 +153,19 @@ class LabelingAppFrame(tk.Frame):
             self.button_next.config(state="disabled")
         else:
             self.button_next.config(state="normal")
-        
-        self.image = Image.open(self.file_list[idx])
-        self.image = ImageTk.PhotoImage(self.image)
-
-        self.image_pannel.configure(image=self.image)
-        self.image_pannel.grid(row=1, column=0, columnspan=len(self.label_names))
+            
         self.file_idx = idx
-
-        for idx, button_label in enumerate(self.button_labels):
+        for idx, button in enumerate(self.label_buttons):
             label_func = self.labeling(idx, self.file_idx)
-            button_label.grid(row=3, column=idx)
+            button.configure(command=label_func)
             root.bind("<KeyRelease-{}>".format(idx), label_func)
 
         self.var_filename.set(self.file_list[idx])
+
+        self.image = Image.open(self.file_list[self.file_idx])
+        self.image = ImageTk.PhotoImage(self.image)
+
+        self.image_pannel.configure(image=self.image)
 
     def labeling(self, label_idx, file_idx):
         def _labeling(event=None):
