@@ -6,3 +6,5 @@ aclImdb
 dataset
 *.h5
 *.tfcache*
+*.png
+*.jpg
