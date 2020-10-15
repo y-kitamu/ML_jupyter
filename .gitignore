@@ -8,3 +8,5 @@ dataset
 *.tfcache*
 *.png
 *.jpg
+upper/
+.ccls-cache
